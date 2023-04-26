@@ -1,0 +1,20 @@
+<app-navbar></app-navbar>
+
+<div class="myclass addQuizForm">
+  <h3> {{ title }} Course</h3>
+  <!--<div *ngFor="let question of questions| paginate:config;let questionID=index ">-->
+  <div *ngFor="let course of courses;let questionID=index ">
+      <div *ngIf="course.is_video">
+          <a href="{{course.question_video}}">{{course.question_video}}</a>
+      </div>
+      <div *ngIf="!course.is_video">
+        <p>{{course.question_text}}</p>
+    </div>
+    
+    
+
+  </div>
+
+    
+  <!--<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>-->
+</div>

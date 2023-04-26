@@ -1,0 +1,35 @@
+.box {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 10px;
+}
+.myclass {
+  display: flex;
+  margin: 2%;
+  padding: 5%;
+  flex-direction: column;
+}
+
+#submit {
+  margin: 20px auto;
+  width: 10%;
+
+  
+}
+
+.card {
+ 
+    border: 1px solid rgb(152, 102, 218);
+    border-radius: 10px;
+    margin:10px 10px;
+}
+h3 {
+  margin: auto auto;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h5,label,p{
+  font-family: 'Montserrat', sans-serif;
+}
+
+

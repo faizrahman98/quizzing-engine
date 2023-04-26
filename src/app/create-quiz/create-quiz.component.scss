@@ -1,0 +1,55 @@
+.addQuizForm{
+    display: flex;
+    flex-direction: column;
+    
+    margin: 5% auto;
+    padding: 2%;
+    width:60%;
+
+    border: 1px solid rgb(152, 102, 218);
+    border-radius: 10px;
+    
+}
+.addQuizForm2{
+    display: flex;
+    flex-direction: column;
+    
+    margin: 5% auto;
+    padding: 2%;
+    width:90%;
+
+    border: 1px solid rgb(152, 102, 218);
+    border-radius: 10px;
+    
+}
+.addQuizForm1{
+    display: flex;
+    flex-direction: column;
+    
+    margin: 5% auto;
+    padding: 2%;
+    width:80%;
+    
+}
+h3{
+    text-align: center;
+    margin:30px 10px;
+}
+button{
+    display: flex;
+    margin: 10 px;
+    margin-left: 80px;
+    flex-direction: row;
+}
+textarea{
+    height: 250px;
+}
+table{
+    text-align: center;
+}
+.myButton{
+    float:right;
+    background-color: #a358c4;
+    color: white;
+    width: 10%;
+}

@@ -1,0 +1,49 @@
+
+<app-navbar></app-navbar>
+
+<div class="myclass">
+  <h3> {{ title }} Quiz</h3>
+  
+  <div *ngFor="let question of questions;let questionID=index ">
+
+    <div class="card">
+      <div class="card-body">
+
+        <h5 class="card-title">{{questionID+1+". "+question.question}}</h5>
+
+        <div class="form-check">
+          <input (change)="radioChangeHandler($event,questionID,question.correct_ans)" class="form-check-input"
+            type="radio" name="{{questionID}}" id="{{questionID}}" value={{question.option_1}}>
+          <label class="form-check-label" for="exampleRadios1">
+            {{question.option_1}}
+          </label>
+        </div>
+        <div class="form-check">
+          <input (change)="radioChangeHandler($event,questionID,question.correct_ans)" class="form-check-input"
+            type="radio" name="{{questionID}}" id="{{questionID}}" value={{question.option_2}}>
+          <label class="form-check-label" for="exampleRadios1">
+            {{question.option_2}}
+          </label>
+        </div>
+        <div class="form-check">
+          <input (change)="radioChangeHandler($event,questionID,question.correct_ans)" class="form-check-input"
+            type="radio" name="{{questionID}}" id="{{questionID}}" value={{question.option_3}}>
+          <label class="form-check-label" for="exampleRadios1">
+            {{question.option_3}}
+          </label>
+        </div>
+        <div class="form-check">
+          <input (change)="radioChangeHandler($event,questionID,question.correct_ans)" class="form-check-input"
+            type="radio" name="{{questionID}}" id="{{questionID}}" value={{question.option_4}}>
+          <label class="form-check-label" for="exampleRadios1">
+            {{question.option_4}}
+          </label>
+        </div>
+        <p><span>You selected: </span><b class="font-weight-bold">{{selectedAnswer[questionID]}}</b></p>
+
+      </div>
+    </div>
+  </div>
+  <button type="button" class="btn btn-outline" style="background-color: #a358c4;color: white;" id="submit" (click)="onSubmit()">Submit</button>
+  <!--<pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>-->
+</div>

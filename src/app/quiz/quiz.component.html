@@ -1,0 +1,47 @@
+<app-navbar></app-navbar>
+
+
+<h4>Our Courses</h4>
+<div class="container">
+  <div class="row pt-5">
+    <div class="col-md-4 p-2 text-center" *ngFor="let course of courses">
+      <!-- single post card -->
+      
+        <div class="card-body cardbody" *ngIf="course.payload.doc.data().isCourse">
+          <h5 class="card-title text-center">{{ course.payload.doc.data().title }}</h5>
+          <p class="card-text text-left">
+            {{ course.payload.doc.data().description }}
+          </p>
+          <a routerLink="/displaycourse/{{course.payload.doc.id}}" class="text-center btn btn-outline myButton" style="background-color: #a358c4; color: white">Checkout Course</a>
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+<h4>Our Quizzes</h4>
+
+<div class="container">
+  <div>
+    <h5 class="headings searchQuiz">Search Quiz</h5>
+    <input type="text" [(ngModel)]="quizTitle" name="quizTitle" class="form-control mb-2 mr-sm-2 search"
+      id="inlineFormInputName2" placeholder="Quiz Title" (keyup)="myFunction()" />
+  </div>
+  <div class="row pt-5" id="container1">
+    <div class="col-md-4 p-2 text-center" *ngFor="let quiz of only_quiz">
+      <!-- single post card -->
+        
+        <div class="card-body  cardbody quiz" *ngIf="!quiz.payload.doc.data().isCourse">
+          <h5 class="card-title text-center quizTitle" id="title">{{ quiz.payload.doc.data().title }}</h5>
+          <p class="card-text text-left">
+            {{ quiz.payload.doc.data().description }}
+          </p>
+          <a routerLink="/displayquiz/{{quiz.payload.doc.id}}" class="text-center btn btn-outline myButton" style="background-color: #a358c4; color: white"
+          >Attempt Quiz</a>
+          <a *ngIf="isAdmin" routerLink="/editQuiz/{{quiz.payload.doc.id}}" class="text-center btn btn-outline myButton" style="background-color: #a358c4; color: white"
+          >Edit Quiz</a>
+        </div>
+      
+    </div>
+  </div>
+</div>

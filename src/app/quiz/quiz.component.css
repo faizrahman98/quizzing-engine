@@ -1,0 +1,43 @@
+.box{
+    width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+#submit{
+    margin:5px 5px 5px;
+}
+.cardbody{
+border: 1px solid rgb(152, 102, 218);
+border-radius: 10px;
+height: 300px;
+}
+.headings{
+    font-family: 'Raleway', sans-serif;
+    margin: 20px 20px;
+   
+
+}
+button{
+    background-color:  rgb(152, 102, 218);
+}
+.searchQuiz{
+    margin-top:3%;
+   
+}
+.search{
+    width:30%;
+    border: 1px solid rgb(152, 102, 218);
+    
+  }
+
+  h4{
+      margin-top:5%;
+      margin-left:30px;
+  }
+
+  .myButton{
+      margin:10px 10px;
+      
+  }
+  

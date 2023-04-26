@@ -1,0 +1,81 @@
+.formclass
+    {
+        display: flex;
+        flex-direction: column;
+        border: 0.8px solid black;
+        margin: 10%;
+        padding: 5%;
+    }
+h4{
+    font-family: 'Raleway', sans-serif;
+}
+.questioncard{
+    border: 0.8px solid black;
+    border-radius: 10px;
+    margin: 20px 20px;
+    padding: 15px 15px;;
+}
+.formclass
+    {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid  #7d3c98;
+        border-radius: 10px;
+        margin: 10%;
+        padding: 5%;
+    }
+h4{
+    font-family: 'Montserrat', sans-serif;
+    margin-left:10px;
+}
+.questioncard{
+   
+    margin: 20px 20px;
+    padding: 15px 15px;
+}
+
+.deleteQuizButton{
+    width:30%;
+   /// margin-top:5px;
+     margin: auto auto;
+    margin-right: 10px;
+}
+
+ #div1{
+    display: flex;
+}
+
+span,input{
+    font-family: 'Montserrat', sans-serif;
+}
+.deleteQuestionButton{
+   //position: absolute;
+   
+    margin: auto 35px ;
+}
+#myContainer{
+    border: 1px solid  #7d3c98;
+    border-radius: 10px;
+    margin: 20px 20px;
+    padding: 15px 15px;;
+}
+
+#newQuestion{
+    text-align: center;
+    margin-top: 20px;
+}
+.addQuizForm{
+    display: flex;
+    flex-direction: column;
+    
+    margin: 5% auto;
+    padding: 2%;
+    width:60%;
+
+    border: 1px solid rgb(152, 102, 218);
+    border-radius: 10px;
+    
+}
+ .addQuestion{
+     margin-left: 100px;
+ }

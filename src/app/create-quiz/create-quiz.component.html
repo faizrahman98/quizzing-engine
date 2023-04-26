@@ -1,0 +1,138 @@
+<app-navbar></app-navbar>
+
+<h3>Create a new Quiz/Course</h3>
+<div class="addQuizForm">
+    
+    <h4>Quiz/Course Name:</h4>
+    <input type="text" id ="name" placeholder="Quiz name" #quizname required><br>
+    <h4>Quiz/Course Description:</h4>
+    <input type="text" id ="description" placeholder="Quiz Description" #quizdescription required><br>
+    
+    
+    <table>
+        <tbody>
+            <tr>
+                <td><button type="button" class="btn btn-info" (click)="addQuestion()">Add Questions</button></td>
+                <td><button type="button" class="btn btn-secondary" (click)="addVideo()">Add Video Link</button></td>
+                <td><button type="button" class="btn btn-warning" (click)="addText()">Add Course Text</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div *ngIf="addValue==1">
+        <form [formGroup]="productForm" (ngSubmit)="logValue(quizname.value,quizdescription.value)" class="addQuizForm1">
+
+
+            <h2>Questions</h2>
+
+            <div formArrayName="questions1">
+                <div *ngFor="let item of getQuestions.controls; let pointIndex=index" [formGroupName]="pointIndex"
+                    class="addQuizForm2">
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"> Question {{pointIndex+1}}</span>
+                        </div>
+                        <input required type="text" class="form-control" aria-describedby="basic-addon1"
+                            formControlName="question">
+                    </div>
+
+                    <!-- <label>
+                      {{pointIndex+1}}) Question: <input class="input-group mb-3" formControlName="question" />
+                  </label> -->
+                  
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"> Option 1:</span>
+                        </div>
+                        <input required type="text" class="form-control" aria-describedby="basic-addon1"
+                            formControlName="question" formControlName="option_1">
+                    </div>
+                    <!-- <label>
+                      Option 1: <input formControlName="option1" />
+                  </label> -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"> Option 2:</span>
+                        </div>
+                        <input required type="text" class="form-control" aria-describedby="basic-addon1"
+                            formControlName="question" formControlName="option_2">
+                    </div>
+                    <!-- <label>
+                      Option 2: <input formControlName="option2" />
+                  </label> -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"> Option 3:</span>
+                        </div>
+                        <input required type="text" class="form-control" aria-describedby="basic-addon1"
+                            formControlName="question" formControlName="option_3">
+                    </div>
+                    <!-- <label>
+                      Option 3: <input formControlName="option3" />
+                  </label> -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"> Option 4:</span>
+                        </div>
+                        <input required type="text" class="form-control" aria-describedby="basic-addon1"
+                            formControlName="question" formControlName="option_4">
+                    </div>
+                    <!-- <label>
+                      Option 4: <input formControlName="option4" />
+                  </label> -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1"> Correct Option :</span>
+                        </div>
+                        <input required type="text" class="form-control" aria-describedby="basic-addon1"
+                            formControlName="question" formControlName="correct_ans">
+                    </div>
+                    <!-- <label>
+                      Correct_Option: <input formControlName="correct" />
+                  </label> -->
+                </div>
+                <div>
+                    <button type="button" class="btn btn-primary" style="margin: auto auto;float: left;"
+                        (click)="addSellingPoint()">Add Question</button>
+
+                </div>
+
+
+
+                <input type="submit" class="btn btn-outline " value="Submit" style="background-color: #a358c4; color: white;width: 20%; margin-top: 30px;float: right;"/>
+            </div>
+           
+        </form>
+
+       
+    </div>
+    <div *ngIf="addValue==2">
+        <form [formGroup]="videoForm" (ngSubmit)="onSubmitVideo(quizname.value,quizdescription.value,quizVideoContent.value)" >
+        <h4 style="margin-top:25px;">Enter the Course Video Link :</h4>
+        <div class="input-group">
+            <input required type="text" class="form-control" aria-label="Sizing example input"
+                aria-describedby="inputGroup-sizing-default" formControlName="quizVideoContent" #quizVideoContent>
+        </div>
+        <input class="btn btn-primary"
+            type="submit" value="Add Video Link for Course" [disabled]="!videoForm.valid">
+        </form>
+    </div>
+    <div *ngIf="addValue==3">
+        <h4>Enter the Course Description/Context :</h4>
+        <div class="input-group">
+            <textarea required class="form-control" aria-label="With textarea" #quizTextContent></textarea>
+        </div>
+        <button class="btn btn-primary"
+            (click)='onSubmitText(quizname.value,quizdescription.value,quizTextContent.value)'>Add Course
+            Text/Context</button>
+    </div>
+
+
+
+
+
+
+
+
+</div>

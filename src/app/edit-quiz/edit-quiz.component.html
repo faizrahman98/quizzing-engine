@@ -1,0 +1,230 @@
+<app-navbar></app-navbar>
+<div class="formclass">
+  <div class="container" id="div1">
+    <h4>Existing Questions:</h4>
+    <button class="btn btn-danger deleteQuizButton" (click)="deleteQuiz()">
+      Delete Quiz
+    </button>
+  </div>
+
+  <div *ngFor="let question of questions; let questionID = index">
+    <div class="container" id="myContainer">
+      <div class="formclass" class="questioncard">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+              Question {{ questionID + 1 }}</span
+            >
+          </div>
+          <input
+            type="text"
+            disabled
+            class="form-control"
+            value="{{ question.question }}"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"> Option 1</span>
+          </div>
+          <input
+            type="text"
+            disabled
+            class="form-control"
+            value="{{ question.option_1 }}"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"> Option 2</span>
+          </div>
+          <input
+            type="text"
+            disabled
+            class="form-control"
+            value="{{ question.option_2 }}"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"> Option 3</span>
+          </div>
+          <input
+            type="text"
+            disabled
+            class="form-control"
+            value="{{ question.option_3 }}"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"> Option 4</span>
+          </div>
+          <input
+            type="text"
+            disabled
+            class="form-control"
+            value="{{ question.option_4 }}"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+              Correct Option</span
+            >
+          </div>
+          <input
+            type="text"
+            disabled
+            class="form-control"
+            value="{{ question.correct_ans }}"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+
+        <button
+          (click)="deleteQuestion(questionID)"
+          class="btn btn-outline-danger deleteQuestionButton"
+          *ngIf="canDelete[questionID]"
+        >
+          Delete
+        </button>
+        <button
+          (click)="deleteQuestion(questionID)"
+          class="btn btn-danger"
+          *ngIf="!canDelete[questionID]"
+          [disabled]="true"
+        >
+          Deleted
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <h4 id="newQuestion">Add New Questions to this quiz</h4>
+
+  <form
+   [formGroup]="productForm" 
+   (ngSubmit)="logValue1()"
+   style="margin-top: 2px" 
+    >
+    
+
+    <div formArrayName="questions1">
+      <div
+        *ngFor="let item of getQuestions.controls; let pointIndex = index"
+        [formGroupName]="pointIndex"
+        class="addQuizForm"
+      >
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"> Question </span>
+          </div>
+          <input
+            required
+            type="text"
+            class="form-control"
+            aria-describedby="basic-addon1"
+            formControlName="question"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"> Option 1:</span>
+          </div>
+          <input
+            required
+            type="text"
+            class="form-control"
+            aria-describedby="basic-addon1"
+            formControlName="question"
+            formControlName="option_1"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"> Option 2:</span>
+          </div>
+          <input
+            required
+            type="text"
+            class="form-control"
+            aria-describedby="basic-addon1"
+            formControlName="question"
+            formControlName="option_2"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"> Option 3:</span>
+          </div>
+          <input
+            required
+            type="text"
+            class="form-control"
+            aria-describedby="basic-addon1"
+            formControlName="question"
+            formControlName="option_3"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"> Option 4:</span>
+          </div>
+          <input
+            required
+            type="text"
+            class="form-control"
+            aria-describedby="basic-addon1"
+            formControlName="question"
+            formControlName="option_4"
+          />
+        </div>
+
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">
+              Correct Option :</span
+            >
+          </div>
+          <input
+            required
+            type="text"
+            class="form-control"
+            aria-describedby="basic-addon1"
+            formControlName="question"
+            formControlName="correct_ans"
+          />
+        </div>
+      </div>
+      
+      <button 
+      type="button" 
+      class="btn btn-primary addQuestion" 
+      (click)="addSellingPoint()"
+      >
+        Add Question
+      </button>
+      <input
+        type="submit"
+        style="float: right; font-family: 'Acme', sans-serif"
+        class="btn btn-success"
+        value="Submit"
+      />
+    </div>
+  </form>
+</div>
